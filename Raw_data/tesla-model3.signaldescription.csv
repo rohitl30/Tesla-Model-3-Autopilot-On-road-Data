@@ -1,0 +1,143 @@
+Message,Description,Data Source
+Time_Elapsed,Time elapsed since beginning of test (in seconds),Post Processing
+Time (epoch),Time from epoch (in seconds),CAN Signal
+Autoware Time,ROS time from epoch (in seconds) ,LIDAR/Autoware
+Time (abs),Time elapsed since beginning of test (in seconds),CAN Signal
+veh_elevation (M),Vehicle Elevation,CAN Signal
+gps_accuracy (m),Global Positioning System Accuracy,CAN Signal
+gps_latitude (deg),Global Positioning System Latitude,CAN Signal
+gps_longitude (deg),Global Positioning System Longitude,CAN Signal
+UI_gpsVehicleHeading (deg),User Interface - GPS vehicle Heading,CAN Signal
+veh_state_drive,"Vehicle drive state (0: Idle, 1: Charging, 2: Standby, 5: Driving)",CAN Signal
+veh_odometer (km),Vehicle odometer reading,CAN Signal
+veh_speed (kph),Vehicle speed,CAN Signal
+pedal_accel (per),Acceleration pedal,CAN Signal
+veh_gear,"Vehicle gear (1: Park, 2: Reverse, 3: Neutral ,4: Drive, 7: Idle)",CAN Signal
+veh_gear_pos,"Vehicle gear position (0: center, 1: half down, 2: full down, 3: half up ,4: full up)",CAN Signal
+DIF_elecPower (kW),Drive Inverter Front -  Electric power,CAN Signal
+DIR_elecPower (kW),Drive Inverter Rear -  Electric power,CAN Signal
+DIF_axleSpeed (rpm),Drive Inverter Front -  Axle speed,CAN Signal
+DIR_axleSpeed (rpm),Drive Inverter Rear -  Axle speed,CAN Signal
+DIF_torqueCommand (Nm),Drive Inverter Front -  Command torque,CAN Signal
+DIF_torqueActual (Nm),Drive Inverter Front -  Actual torque ,CAN Signal
+DIR_torqueCommand (Nm),Drive Inverter Rear -  Command torque,CAN Signal
+DIR_torqueActual (Nm),Drive Inverter Rear -  Actual torque ,CAN Signal
+motor_torque_front_request_2 (Nm),Front motor torque - Requested,CAN Signal
+motor_torque_front_actual_2 (Nm),Front motor torque - Actual,CAN Signal
+motor_torque_rear_request_2 (Nm),Rear motor torque - Requested,CAN Signal
+motor_torque_rear_actual_2 (Nm),Rear motor torque - Actual,CAN Signal
+VCLEFT_brakeTrailerLightStatus,"Vehicle Controller Left - brake trailer light status (0: Off, 1: On, 2: Fault, 3: Signal not available)",CAN Signal
+ESP_driverBrakeApply,"Electronic Stability Program - Driver apply brake (0: Not initiated or off, 1: Not applied, 2: Driver applying brakes, 3: Faulty)",CAN Signal
+ESP_brakeApply,"Electronic Stability Program - Apply brake (0: Brake light switch Inactive, 1: Brake light switch active)",CAN Signal
+veh_brake_state,"Vehicle brake state (0: Off, 1: Pedal brake applied)",CAN Signal
+ESP_brakeTorqueTarget (Nm),Electronic Stability Program - Brake torque target,CAN Signal
+ESP_brakeTorqueFrL (Nm),Electronic Stability Program - Front left brake torque,CAN Signal
+ESP_brakeTorqueFrR (Nm),Electronic Stability Program - Front right brake torque,CAN Signal
+ESP_brakeTorqueReL (Nm),Electronic Stability Program - Rear left brake torque,CAN Signal
+ESP_brakeTorqueReR (Nm),Electronic Stability Program - Rear right brake torque,CAN Signal
+veh_steering_angle (deg),Vehicle steering angle,CAN Signal
+veh_steering_speedps (D/S),Vehicle steering speed per second,CAN Signal
+RCM_longitudinalAccel (m/s^2),Restraint Control Module - Longitudinal acceleration,CAN Signal
+RCM_lateralAccel (m/s^2),Restraint Control Module - Lateral acceleration,CAN Signal
+RCM_verticalAccel (m/s^2),Restraint Control Module - Vertical acceleration,CAN Signal
+RCM_pitchRate (rad/s),Restraint Control Module - Pitch rate,CAN Signal
+RCM_rollRate (rad/s),Restraint Control Module - Roll rate,CAN Signal
+RCM_yawRate (rad/s),Restraint Control Module - Yaw rate,CAN Signal
+APP_environmentRainy,"AutoPilot Program - Whether rainy (0: Not rainy, 1: rainy)",CAN Signal
+APP_environmentSnowy,"AutoPilot Program - Whether snowy (0: Not snowy, 1: snowy)",CAN Signal
+VCFRONT_wiperPosition,Vehicle Controller Front - Wiper position,CAN Signal
+VCFRONT_wiperSpeed,Vehicle Controller Front - Wiper speed,CAN Signal
+UI_mapSpeedUnits,"User Interface - map speed units (0: MPH, 1:KPH)",CAN Signal
+UI_mapSpeedLimit,User Interface - map speed limit,CAN Signal
+UI_Range (mi),User Interface - Predicted range with remaining charge,CAN Signal
+BMS_TotalChargeKWh (kWh),Battery Management System - Total charge energy,CAN Signal
+BMS_TotalDischargeKWh (kWh),Battery Management System - Total discharge energy,CAN Signal
+BMS_state,"Battery Management System - state (0: Standby, 1: Drive, 2: Support, 3: Charge)",CAN Signal
+BMS_packCurrent (A),Battery Management System - Pack current,CAN Signal
+BMS_packVoltage (V),Battery Management System - Pack voltage,CAN Signal
+BMS_socAvg (per),Battery Management System - Average state of charge percent,CAN Signal
+BMS_socMax (per),Battery Management System - Maximum state of charge percent,CAN Signal
+BMS_socMin (per),Battery Management System - Minimum state of charge percent,CAN Signal
+BMS_energyToChargeComplete (KWh),Battery Management System - energy to full charge,CAN Signal
+BMS_nominalEnergyRemaining (KWh),Battery Management System - nominal energy remaining,CAN Signal
+VCFRONT_indicatorLeftRequest,"Vehicle Controller Front - Indicator left (0: Off, 1: Active Low, 2: Active High)",CAN Signal
+VCFRONT_indicatorRightRequest,"Vehicle Controller Front - Indicator right (0: Off, 1: Active Low, 2: Active High)",CAN Signal
+VCLEFT_turnSignalStatus,"Vehicle Controller Left - Turn signal status (0: Off, 1: On)",CAN Signal
+VCRIGHT_turnSignalStatus,"Vehicle Controller Right - Turn signal status (0: Off, 1: On)",CAN Signal
+DAS_accState,"Driver Assist System - Adaptive cruise control (ACC) state (0: ACC cancel generic, 1: ACC cancel- camera blind, 2: ACC cancel -radar blind, 3: ACC hold, 4: ACC on)",CAN Signal
+DAS_autopilotState,"Driver Assist System - Auto pilot state (0: Disabled, 1: Unavailable, 2: Available, 3: Active - Nominal, 4: Active - Restricted, 5: Active - navigation, 8: Aborting, 9: Aborted)",CAN Signal
+DAS_aebEvent,"Driver Assist System - Automatic emergency braking event (0: Not active, 1: Active, 2: Fault, 3: Signal not available)",CAN Signal
+UI_accFollowDistanceSetting,"User Interface - ACC follow distance setting (0: Setting 1 to 6:Setting 7, 7: Setting - signal not available))",CAN Signal
+DAS_controlDistance (m),Driver Assist System - Control Distance,CAN Signal
+UI_adaptiveSetSpeedEnable,"User Interface - Adaptive set speed enable (0: Not enabled, 1: Enabled)",CAN Signal
+DAS_accSpeedLimit (mph),Driver Assist System - ACC speed limit ,CAN Signal
+DAS_setSpeed (kph),Driver Assist System - Set speed ,CAN Signal
+DAS_accelMax (m/s^2),Driver Assist System - Maximum acceleration,CAN Signal
+DAS_accelMin (m/s^2),Driver Assist System - Minimum acceleration,CAN Signal
+DAS_jerkMax (m/s^3),Driver Assist System - Maximum jerk,CAN Signal
+DAS_jerkMin (m/s^3),Driver Assist System - Minimum jerk,CAN Signal
+UI_autosteerRestricted,"User Interface - Auto steer restricted (0: not restricted, 1: restricted)",CAN Signal
+UI_inSuperchargerGeofence,"User Interface - Whether in super charger geofence (0:No, 1:Yes)",CAN Signal
+UI_roadClass,User Interface - Road class (CLASS_1 (Major) to CLASS_6 (Minor) ),CAN Signal
+UI_nextBranchDist (m),User Interface - Distance to next road branch in highways (Maximum value possible  = 300; SNA = 310),CAN Signal
+DAS_leftLaneExists,"Driver Assistance System (DAS) - Left lane exists (0: Does not exist, 1: exist)",CAN Signal
+DAS_rightLaneExists,"Driver Assistance System (DAS) - Right lane exists (0: Does not exist, 1: exist)",CAN Signal
+DAS_alcInternalState,DAS - Auto Lane Change internal state,CAN Signal
+DAS_autoLaneChangeState,"DAS - Auto Lane Change state (0: Unavailable - disabled, 1: unavailable - no lanes, 4: unavailable - exiting highway, 5: unavailable - vehicle speed, 6: available - only left, 7: available - only right, 8: available - both, 9: In progress - left, 10: In progress - right)",CAN Signal
+DAS_virtualLaneViewRange (m),DAS - Virtual lane view range,CAN Signal
+DAS_virtualLaneWidth (m),DAS - Virtual lane width (value = 2 indicates signal not available),CAN Signal
+DAS_virtualLaneC0 (m),DAS - lane curvature parameter,CAN Signal
+DAS_virtualLaneC1 (rad),DAS - lane curvature parameter,CAN Signal
+DAS_virtualLaneC2 (m-1),DAS - lane curvature parameter,CAN Signal
+Tesla_RAD_Left1|Track,Track ID of the nearest vehicle travelling in the left lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Left1|LongDist (m),Relative longitudinal distance of the nearest vehicle travelling in the left lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Left1|LatDist (m),Relative lateral distance of the nearest vehicle travelling in the left lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Left1|LongSpeed (m/s),Relative longitudinal speed of the nearest vehicle travelling in the left lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Left1|LatSpeed (m/s),Relative lateral speed of the nearest vehicle travelling in the left lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Left1|LongAccel (m/s^2),Relative longitudinal acceleration of the nearest vehicle travelling in the left lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Same1|Track,Track ID of the nearest vehicle travelling in the same lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Same1|LongDist (m),Relative longitudinal distance of the nearest vehicle travelling in the same lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Same1|LatDist (m),Relative lateral distance of the nearest vehicle travelling in the same lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Same1|LongSpeed (m/s),Relative longitudinal speed of the nearest vehicle travelling in the same lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Same1|LatSpeed (m/s),Relative lateral speed of the nearest vehicle travelling in the same lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+Tesla_RAD_Same1|LongAccel (m/s^2),Relative longitudinal acceleration of the nearest vehicle travelling in the same lane and ahead of test vehicle (Source: Inbuild radar of Tesla),CAN Signal
+RAD_Same1|Track ID,ID of the nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same1|Distance x (m),Longitudinal relative position of the nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same1|Distance y (m),Lateral relative position of the nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same1|Long_Velocity (m/s),Relative longitudinal velocity of the nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same1|Lat_Velocity (m/s),Relative lateral velocity of the nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same1|Acceleration (m/s2),Relative longitudinal acceleration of the nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same2|Track ID,ID of the second nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same2|Distance x (m),Longitudinal relative position of the second nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same2|Distance y (m),Lateral relative position of the second nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same2|Long_Velocity (m/s),Relative longitudinal velocity of the second nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same2|Lat_Velocity (m/s),Relative lateral velocity of the second nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+RAD_Same2|Acceleration (m/s2),Relative longitudinal acceleration of the second nearest vehicle travelling in the same lane and ahead of test vehicle,RADAR
+LID_Left2|ID,ID of the second nearest vehicle travelling in the left lane and ahead of test vehicle,LIDAR/Autoware
+LID_Left2|Distance x (m),Longitudinal relative position of the second nearest vehicle travelling in the left lane and ahead of test vehicle,LIDAR/Autoware
+LID_Left2|Distance y (m),Lateral relative position of the second nearest vehicle travelling in the left lane and ahead of test vehicle,LIDAR/Autoware
+LID_Left1|ID,ID of the nearest vehicle travelling in the left lane and ahead of test vehicle,LIDAR/Autoware
+LID_Left1|Distance x (m),Longitudinal relative position of the nearest vehicle travelling in the left lane and ahead of test vehicle,LIDAR/Autoware
+LID_Left1|Distance y (m),Lateral relative position of the nearest vehicle travelling in the left lane and ahead of test vehicle,LIDAR/Autoware
+LID_Left-1|ID,ID of the nearest vehicle travelling in the left lane and behind the test vehicle,LIDAR/Autoware
+LID_Left-1|Distance x (m),Longitudinal relative position of the nearest vehicle travelling in the left lane and behind the test vehicle,LIDAR/Autoware
+LID_Left-1|Distance y (m),Lateral relative position of the nearest vehicle travelling in the left lane and behind the test vehicle,LIDAR/Autoware
+LID_Same2|ID,ID of the second nearest vehicle travelling in the same lane and ahead of test vehicle,LIDAR/Autoware
+LID_Same2|Distance x (m),Longitudinal relative position of the second nearest vehicle travelling in the same lane and ahead of test vehicle,LIDAR/Autoware
+LID_Same2|Distance y (m),Lateral relative position of the second nearest vehicle travelling in the same lane and ahead of test vehicle,LIDAR/Autoware
+LID_Same1|ID,ID of the nearest vehicle travelling in the same lane and ahead of test vehicle,LIDAR/Autoware
+LID_Same1|Distance x (m),Longitudinal relative position of the nearest vehicle travelling in the same lane and ahead of test vehicle,LIDAR/Autoware
+LID_Same1|Distance y (m),Lateral relative position of the nearest vehicle travelling in the same lane and ahead of test vehicle,LIDAR/Autoware
+LID_Same-1|ID,ID of the nearest vehicle travelling in the same lane and behind the test vehicle,LIDAR/Autoware
+LID_Same-1|Distance x (m),Longitudinal relative position of the nearest vehicle travelling in the same lane and behind the test vehicle,LIDAR/Autoware
+LID_Same-1|Distance y (m),Lateral relative position of the nearest vehicle travelling in the same lane and behind the test vehicle,LIDAR/Autoware
+LID_Right2|ID,ID of the second nearest vehicle travelling in the right lane and ahead of test vehicle,LIDAR/Autoware
+LID_Right2|Distance x (m),Longitudinal relative position of the second nearest vehicle travelling in the right lane and ahead of test vehicle,LIDAR/Autoware
+LID_Right2|Distance y (m),Lateral relative position of the second nearest vehicle travelling in the right lane and ahead of test vehicle,LIDAR/Autoware
+LID_Right1|ID,ID of the nearest vehicle travelling in the right lane and ahead of test vehicle,LIDAR/Autoware
+LID_Right1|Distance x (m),Longitudinal relative position of the nearest vehicle travelling in the right lane and ahead of test vehicle,LIDAR/Autoware
+LID_Right1|Distance y (m),Lateral relative position of the nearest vehicle travelling in the right lane and ahead of test vehicle,LIDAR/Autoware
+LID_Right-1|ID,ID of the nearest vehicle travelling in the right lane and behind the test vehicle,LIDAR/Autoware
+LID_Right-1|Distance x (m),Longitudinal relative position of the nearest vehicle travelling in the right lane and behind the test vehicle,LIDAR/Autoware
+LID_Right-1|Distance y (m),Lateral relative position of the nearest vehicle travelling in the right lane and behind the test vehicle,LIDAR/Autoware
+# Vehicles,Total number of surrounding vehicles detected and processed by LIDAR,Post Processing
