@@ -1,0 +1,7 @@
+speed_limit,active_samples,avg_set_speed_mph,avg_actual_speed_mph,avg_speed_difference_mph
+25 mph,1840,25.0,23.8,1.2
+35 mph,2675,35.1,33.7,1.4
+45 mph,3210,45.0,43.6,1.4
+55 mph,4890,54.8,53.2,1.6
+65 mph,3765,64.9,62.7,2.2
+70 mph,2140,69.7,67.8,1.9

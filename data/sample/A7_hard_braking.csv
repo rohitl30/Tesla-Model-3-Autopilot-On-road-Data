@@ -1,0 +1,9 @@
+traffic_level,driving_mode,sample_count,hard_brake_samples,hard_brakes_per_1000,avg_brake_torque_nm
+0 vehicles,Autopilot,8420,17,2.02,118.6
+0 vehicles,Manual / Other,3960,15,3.79,126.4
+1-2 vehicles,Autopilot,12680,42,3.31,124.8
+1-2 vehicles,Manual / Other,5840,31,5.31,133.7
+3+ vehicles,Autopilot,9780,51,5.21,137.2
+3+ vehicles,Manual / Other,4670,39,8.35,145.1
+Unknown,Autopilot,740,3,4.05,121.9
+Unknown,Manual / Other,380,3,7.89,129.5

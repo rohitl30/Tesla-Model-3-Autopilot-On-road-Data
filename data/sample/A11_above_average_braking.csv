@@ -1,0 +1,5 @@
+drive_id,route,sample_count,hard_brake_samples,hard_brakes_per_1000
+106,North Highway,920,14,15.22
+110,Urban Connector,1280,17,13.28
+115,East Loop,760,9,11.84
+121,Campus Route,1540,16,10.39

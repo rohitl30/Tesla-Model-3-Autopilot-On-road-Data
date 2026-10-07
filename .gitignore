@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.streamlit/secrets.toml
+*.log
+
+# Keep small sample query-result files available to the project.
+!data/sample/
+
+# Do not commit the large original telemetry dataset.
+data/raw/
+*.csv
+!data/sample/*.csv
