@@ -1,0 +1,110 @@
+B7. Vehicle speed summary
+The original speed values are stored in kilometers per hour, so this query
+converts them to miles per hour. Comparing total rows with rows_with_speed
+also shows whether some telemetry rows have a missing speed value. */
+SELECT 
+    COUNT(*) AS total_rows,
+    COUNT(veh_speed_kph) AS rows_with_speed,
+    ROUND(MIN(veh_speed_kph) * 0.621371, 1) AS min_mph,
+    ROUND(AVG(veh_speed_kph) * 0.621371, 1) AS avg_mph,
+    ROUND(MAX(veh_speed_kph) * 0.621371, 1) AS max_mph
+FROM vehicle_telemetry;
+
+B10. Automatic Emergency Braking status
+This lists every AEB label and code in the Autopilot data and counts the
+number of samples for each one. The results show how often each AEB status
+appears, but the sample count does not mean the number of separate events. */
+SELECT 
+    das_aeb_event_label AS event_name,
+    das_aeb_event_code AS event_code,
+    COUNT(*) AS sample_count
+FROM autopilot_telemetry
+GROUP BY das_aeb_event_label, das_aeb_event_code
+ORDER BY sample_count DESC;
+
+A5. Following distance by traffic level and gap setting
+Vehicle count is divided into empty, light or moderate, and heavy traffic.
+For each traffic group and follow setting, the query finds the average control
+distance used while Autopilot was active. */
+SELECT 
+    tr.ui_acc_follow_distance_setting_label AS follow_setting,
+    CASE 
+        WHEN tr.vehicle_count IS NULL THEN 'Unknown'
+        WHEN tr.vehicle_count = 0 THEN '0 vehicles (Empty)'
+        WHEN tr.vehicle_count <= 2 THEN '1-2 vehicles (Light/Mod)'
+        ELSE '3+ vehicles (Heavy)'
+    END AS traffic_level,
+    COUNT(*) AS sample_count,
+    ROUND(AVG(tr.das_control_distance_m), 1) AS avg_control_distance_m
+FROM traffic_telemetry tr
+JOIN autopilot_telemetry ap USING (sample_id)
+WHERE ap.das_autopilot_state_label LIKE 'ACTIVE%'
+  AND tr.das_control_distance_m IS NOT NULL
+GROUP BY follow_setting, traffic_level
+ORDER BY follow_setting, traffic_level;
+
+A6. Planned gap setting and actual control distance
+The drive table contains the gap setting planned for each test drive. This
+query connects that information with the real-time traffic data and shows the
+average control distance and Autopilot use for each planned setting. */
+SELECT 
+    d.gap_setting AS planned_gap_setting,
+    COUNT(DISTINCT d.drive_id) AS drive_count,
+    COUNT(*) AS sample_count,
+    ROUND(AVG(tr.das_control_distance_m), 1) AS avg_control_distance_m,
+    ROUND(
+        100.0 * SUM(ap.das_autopilot_state_label LIKE 'ACTIVE%')
+        / COUNT(ap.das_autopilot_state_label),
+        2
+    ) AS active_percent
+FROM drive d
+JOIN telemetry_sample ts
+    ON ts.drive_id = d.drive_id
+JOIN traffic_telemetry tr
+    ON tr.sample_id = ts.sample_id
+JOIN autopilot_telemetry ap
+    ON ap.sample_id = ts.sample_id
+GROUP BY d.gap_setting
+ORDER BY d.gap_setting;
+
+A9. Drives with hard braking while Autopilot was active
+EXISTS is used to find drives that contain at least one active Autopilot sample
+where longitudinal acceleration was -3.0 m/s^2 or lower. Each matching drive
+is returned only once even if it has many hard-braking samples. */
+SELECT 
+    d.drive_id,
+    d.route,
+    d.gap_setting
+FROM drive d
+WHERE EXISTS (
+    SELECT 1
+    FROM telemetry_sample ts
+    JOIN autopilot_telemetry ap
+        ON ap.sample_id = ts.sample_id
+    JOIN brake_dynamics_telemetry b
+        ON b.sample_id = ts.sample_id
+    WHERE ts.drive_id = d.drive_id
+      AND ap.das_autopilot_state_label LIKE 'ACTIVE%'
+      AND b.rcm_longitudinal_accel_m_s_2 <= -3.0
+)
+ORDER BY d.test_number;
+
+A10. Drives with no active Autopilot samples
+NOT EXISTS checks each drive and removes it if any ACTIVE Autopilot state is
+found. These drives can be used as possible manual baselines, although some
+samples may also have an unknown or other non-active state. */
+SELECT 
+    d.drive_id,
+    d.route,
+    d.gap_setting,
+    d.distance_miles
+FROM drive d
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM telemetry_sample ts
+    JOIN autopilot_telemetry ap
+        ON ap.sample_id = ts.sample_id
+    WHERE ts.drive_id = d.drive_id
+      AND ap.das_autopilot_state_label LIKE 'ACTIVE%'
+)
+ORDER BY d.test_number;
